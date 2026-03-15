@@ -1,79 +1,94 @@
 # AI Assistant (TypeScript)
 
-Proyek ini adalah contoh aplikasi chat AI sederhana berbasis TypeScript yang memisahkan backend (Hono + Google Generative AI) dan frontend (Vite + React). Dokumen ini ditulis dalam Bahasa Indonesia.
+This project is a simple AI chat application example based on TypeScript that separates the backend (Hono + Google Generative AI) and the frontend (Vite + React).
 
-**Perhatian (Privacy)**: Jangan meng-commit file yang berisi API key atau data sensitif (mis. `backend/.env`). Gunakan `backend/.env.example` untuk menunjukkan variabel lingkungan yang diperlukan.
+**Privacy Warning**: Do not commit files containing API keys or sensitive data (e.g., `backend/.env`). Use `backend/.env.example` to demonstrate the required environment variables.
 
-**Fitur**:
-- Ringkas: Frontend React + komponen UI sederhana.
-- Backend ringan menggunakan Hono dan Google Generative AI.
+**Features**:
 
-## Struktur Proyek
+* Lightweight: React frontend with simple UI components.
+* Fast backend using Hono and Google Generative AI.
 
-- `backend/` — server Hono, endpoint API
-- `frontend/` — aplikasi React (Vite)
+---
 
-## Prasyarat
+## Project Structure
 
-- Node.js (disarankan v18 atau lebih baru)
-- npm atau yarn
-- Kunci API Google Generative AI (Gemini) — simpan sebagai `GEMINI_API_KEY`
+* `backend/` — Hono server, API endpoints.
+* `frontend/` — React application (Vite).
 
-## Instalasi & Menjalankan
+## Prerequisites
 
-1. Clone repository ini.
+* Node.js (v18 or newer recommended).
+* npm or yarn.
+* Google Generative AI (Gemini) API Key — save as `GEMINI_API_KEY`.
+
+---
+
+## Installation & Setup
+
+1. Clone this repository.
 
 ### Backend
 
-```
+```bash
 cd backend
 npm install
-cp .env.example .env    # lalu isi GEMINI_API_KEY di backend/.env
-npm run dev             # development (watch)
-# atau untuk production: npm run start
+cp .env.example .env     # then fill in GEMINI_API_KEY in backend/.env
+npm run dev              # development (watch mode)
+# or for production: npm run start
+
 ```
 
-Server backend berjalan di `http://localhost:3000` (port dikonfigurasi di `backend/src/index.ts`).
+The backend server runs on `http://localhost:3000` (port configured in `backend/src/index.ts`).
 
 ### Frontend
 
-```
+```bash
 cd frontend
 npm install
 npm run dev
+
 ```
 
-Frontend menggunakan Vite; default akan tersedia di `http://localhost:5173` (atau port yang ditentukan Vite).
+The frontend uses Vite; by default, it will be available at `http://localhost:5173` (or the port specified by Vite).
+
+---
 
 ## API
 
-- Endpoint: `POST /api/chat`
-- Conten-Type: `application/json`
-- Request body contoh:
+* **Endpoint**: `POST /api/chat`
+* **Content-Type**: `application/json`
+* **Request Body Example**:
 
 ```json
-{ "message": "Halo, bantu jelaskan tentang ..." }
+{ "message": "Hello, please explain..." }
+
 ```
 
-- Response sukses contoh:
+* **Success Response Example**:
 
 ```json
-{ "reply": "... jawaban AI ..." }
+{ "reply": "... AI response ..." }
+
 ```
 
-- Response error mengandung properti `error` dan `message`.
+* **Error Response**: Contains `error` and `message` properties.
 
-## Environment variables
+---
 
-- `GEMINI_API_KEY` — kunci API Google Generative AI yang diperlukan oleh backend.
+## Environment Variables
 
-Gunakan file `backend/.env.example` sebagai template. Jangan commit file `backend/.env` yang berisi nilai nyata.
+* `GEMINI_API_KEY` — The Google Generative AI API key required by the backend.
 
-## Keamanan & Open Source
+Use the `backend/.env.example` file as a template. **Do not commit** the `backend/.env` file containing real values.
 
-- Pastikan file `backend/.env` ditambahkan ke `.gitignore` sebelum mem-push ke remote publik.
-- Jika repo sudah terlanjur berisi API key di commit sebelumnya, pertimbangkan untuk mengganti kunci dan membersihkan riwayat git (contoh: `git rm --cached backend/.env` lalu commit dan push). Hati-hati saat menghapus kunci dari history — itu membutuhkan langkah tambahan.
+---
 
-## Kontribusi
+## Security & Open Source
 
-- Fork repo, buat branch baru, lakukan perubahan, lalu buka Pull Request.
+* Ensure the `backend/.env` file is added to `.gitignore` before pushing to a public remote.
+* If the repository accidentally contains an API key in previous commits, consider rotating the key and cleaning the git history (e.g., `git rm --cached backend/.env`, then commit and push). Use caution when removing keys from history—this requires additional steps.
+
+## Contribution
+
+* Fork the repo, create a new branch, make your changes, and open a Pull Request.
