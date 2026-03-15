@@ -30,7 +30,6 @@ app.post('/api/chat', async (c) => {
     return c.json({ reply: aiReply })
 
   } catch (error: any) {
-    // Log ini akan muncul di Terminal VS Code Anda
     console.error("--- DETAIL ERROR BACKEND ---");
     console.error("Pesan:", error.message);
     if (error.stack) console.error("Stack:", error.stack);
