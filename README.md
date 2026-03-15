@@ -1,4 +1,4 @@
-# AI Assistant v2 (TypeScript)
+# AI Assistant (TypeScript)
 
 Proyek ini adalah contoh aplikasi chat AI sederhana berbasis TypeScript yang memisahkan backend (Hono + Google Generative AI) dan frontend (Vite + React). Dokumen ini ditulis dalam Bahasa Indonesia.
 
