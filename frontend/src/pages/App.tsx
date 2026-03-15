@@ -6,7 +6,6 @@ import { Input } from "@/components/ui/input";
 import { Card } from "@/components/ui/card";
 import { ScrollArea } from "@/components/ui/scroll-area";
 
-// Definisi Tipe Data
 interface Message {
   role: 'user' | 'ai';
   content: string;
@@ -36,8 +35,8 @@ const App: React.FC = () => {
     setInput('');
     setIsLoading(true);
 
-    try {
-      const response = await fetch('http://localhost:3000/api/chat', {
+      try {
+      const response = await fetch('/api/chat', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ message: currentInput }),
@@ -57,7 +56,6 @@ const App: React.FC = () => {
 
   return (
     <div className="flex flex-col h-screen bg-background text-foreground max-w-3xl mx-auto border-x">
-      {/* Header Tetap Sama */}
       <header className="p-4 border-b flex items-center justify-between bg-card/50 backdrop-blur-sm">
         <div className="flex items-center gap-2 font-semibold">
           <div className="bg-primary p-1.5 rounded-lg">
@@ -68,7 +66,6 @@ const App: React.FC = () => {
         <Button variant="outline" size="sm" onClick={() => setMessages([])}>New Chat</Button>
       </header>
 
-      {/* Chat Area */}
       <ScrollArea ref={scrollRef} className="flex-1 p-4">
         <div className="space-y-6 pb-4">
           {messages.length === 0 && (
@@ -108,7 +105,6 @@ const App: React.FC = () => {
         </div>
       </ScrollArea>
 
-      {/* Input Area */}
       <footer className="p-4 border-t bg-background">
         <div className="flex gap-2 items-center">
           <Input
